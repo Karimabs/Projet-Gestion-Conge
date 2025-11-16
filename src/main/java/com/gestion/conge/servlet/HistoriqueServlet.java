@@ -48,6 +48,6 @@ public class HistoriqueServlet extends HttpServlet {
         }
 
         req.setAttribute("demandesHistorique", demandesHistorique);
-        req.getRequestDispatcher("/manager/historique.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/manager/historique.jsp").forward(req, resp);
     }
 }

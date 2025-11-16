@@ -8,11 +8,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
+import org.mindrot.jbcrypt.BCrypt;
 import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/admin/dashboard")
+
 public class AdminServlet extends HttpServlet {
 
     private UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
@@ -29,7 +30,7 @@ public class AdminServlet extends HttpServlet {
                 Utilisateur u = utilisateurDAO.findById(id);
                 if (u != null) {
                     req.setAttribute("utilisateur", u);
-                    req.getRequestDispatcher("/admin/modifierUtilisateur.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/WEB-INF/admin/modifierUtilisateur.jsp").forward(req, resp);
                 } else {
                     resp.sendRedirect(req.getContextPath() + "/admin/dashboard");
                 }
@@ -41,7 +42,7 @@ public class AdminServlet extends HttpServlet {
 
             List<Utilisateur> users = utilisateurDAO.findAll();
             req.setAttribute("users", users);
-            req.getRequestDispatcher("/admin/dashboard.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/admin/dashboard.jsp").forward(req, resp);
         }
     }
 
@@ -63,7 +64,8 @@ public class AdminServlet extends HttpServlet {
                 String motDePasse = req.getParameter("password");
                 String role = req.getParameter("role");
 
-                Utilisateur newUser = new Utilisateur(nom, prenom, email, motDePasse, role);
+                String motDePasseHache = BCrypt.hashpw(motDePasse, BCrypt.gensalt());
+                Utilisateur newUser = new Utilisateur(nom, prenom, email, motDePasseHache, role);
                 utilisateurDAO.save(newUser);
 
             } else if ("supprimer".equals(action)) {
@@ -87,8 +89,8 @@ public class AdminServlet extends HttpServlet {
 
                     String mdp = req.getParameter("password");
                     if (mdp != null && !mdp.isEmpty()) {
-
-                        u.setMotDePasse(mdp);
+                        String motDePasseHache = BCrypt.hashpw(mdp, BCrypt.gensalt());
+                        u.setMotDePasse(motDePasseHache);
                     }
                     utilisateurDAO.save(u);
                 }

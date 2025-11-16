@@ -2,7 +2,7 @@ package com.gestion.conge.servlet;
 
 import com.gestion.conge.dao.UtilisateurDAO;
 import com.gestion.conge.model.Utilisateur;
-
+import org.mindrot.jbcrypt.BCrypt;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
 
         Utilisateur u = userDao.findByEmail(email);
-        if (u != null && u.getMotDePasse().equals(password)) {
+        if (u != null && BCrypt.checkpw(password, u.getMotDePasse())) {
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
             String role = u.getRole();

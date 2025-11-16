@@ -23,7 +23,7 @@ public class ManagerServlet extends HttpServlet {
 
         // <-- MODIFICATION IMPORTANTE
         // Correction du chemin vers votre JSP
-        req.getRequestDispatcher("/manager/dashboard.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/manager/dashboard.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

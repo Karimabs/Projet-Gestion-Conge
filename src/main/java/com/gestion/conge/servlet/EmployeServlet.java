@@ -41,7 +41,7 @@ public class EmployeServlet extends HttpServlet {
 
                 if (d != null && d.getUtilisateur().getId().equals(user.getId()) && "EN_ATTENTE".equals(d.getStatut())) {
                     req.setAttribute("demande", d); // Passe l'objet demande à la JSP
-                    req.getRequestDispatcher("/employe/modifierDemande.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/WEB-INF/employe/modifierDemande.jsp").forward(req, resp);
                 } else {
 
                     resp.sendRedirect(req.getContextPath() + "/employe/dashboard");
@@ -54,7 +54,7 @@ public class EmployeServlet extends HttpServlet {
 
             List<DemandeConge> demandes = demandeDAO.findByUtilisateur(user);
             req.setAttribute("demandes", demandes);
-            req.getRequestDispatcher("/employe/dashboard.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/employe/dashboard.jsp").forward(req, resp);
         }
     }
 
