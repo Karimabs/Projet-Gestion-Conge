@@ -24,11 +24,7 @@ Exécutez l'intégralité du script.
 ### Étape 3 : Configurer la Connexion Hibernate
 Le projet a besoin de votre mot de passe MySQL pour se connecter.
 Ouvrez le fichier : src/main/resources/hibernate.cfg.xml.
-Modifiez les lignes username et password pour correspondre à votre configuration MySQL locale :
-
-<property name="hibernate.connection.username">root</property>
-<property name="hibernate.connection.password">VOTRE_MOT_DE_PASSE_MYSQL</property>
-
+Modifiez les lignes username et password pour correspondre à votre configuration MySQL locale 
 ### Étape 4 : Lancer l'Application
 
 ## Identifiants de Connexion
