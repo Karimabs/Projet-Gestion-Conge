@@ -9,12 +9,10 @@ Ce projet est une application web de gestion de congés réalisée avec Java EE,
 ## 2. Instructions d'installation
 
 ### Étape 1 : Cloner le projet
-Clonez ce dépôt sur votre machine locale :
-```bash
-git clone https://github.com/Karimabs/Projet-Gestion-Conge.git
-cd Projet-Gestion-Conge
-
-### Étape 2 : Créer la Base de Données
+ Clonez ce dépôt sur votre machine locale : (terminal)
+ git clone https://github.com/Karimabs/Projet-Gestion-Conge.git
+ cd Projet-Gestion-Conge 
+### Étape 2 Créer la Base de Données: 
 Vous devez créer la base de données et les tables avant de lancer l'application.
 
 Ouvrez MySQL Workbench et connectez-vous à votre serveur MySQL.
@@ -23,7 +21,7 @@ Ouvrez le fichier database.sql (inclus à la racine de ce projet).
 
 Exécutez l'intégralité du script.
 
-4. Étape 3 : Configurer la Connexion Hibernate
+### Étape 3 : Configurer la Connexion Hibernate
 Le projet a besoin de votre mot de passe MySQL pour se connecter.
 Ouvrez le fichier : src/main/resources/hibernate.cfg.xml.
 Modifiez les lignes username et password pour correspondre à votre configuration MySQL locale :
@@ -31,15 +29,15 @@ Modifiez les lignes username et password pour correspondre à votre configuratio
 <property name="hibernate.connection.username">root</property>
 <property name="hibernate.connection.password">VOTRE_MOT_DE_PASSE_MYSQL</property>
 
-5. Étape 4 : Lancer l'Application
+### Étape 4 : Lancer l'Application
 
-* Identifiants de Connexion
+## Identifiants de Connexion
 Un compte Administrateur est créé par défaut par le script database.sql.
 
 Email : admin@example.com
 Mot de passe : admin123
 
-* Auteurs
+## Auteurs
 Ce projet a été réalisé par :
 - Imane Baradi
 - Karima bousmara
