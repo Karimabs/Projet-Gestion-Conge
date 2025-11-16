@@ -10,8 +10,8 @@ Ce projet est une application web de gestion de congés réalisée avec Java EE,
 
 ### Étape 1 : Cloner le projet
  Clonez ce dépôt sur votre machine locale : (terminal)
- git clone https://github.com/Karimabs/Projet-Gestion-Conge.git
- cd Projet-Gestion-Conge 
+* git clone https://github.com/Karimabs/Projet-Gestion-Conge.git
+* cd Projet-Gestion-Conge 
 ### Étape 2 Créer la Base de Données: 
 Vous devez créer la base de données et les tables avant de lancer l'application.
 
@@ -30,8 +30,8 @@ Modifiez les lignes username et password pour correspondre à votre configuratio
 ## Identifiants de Connexion
 Un compte Administrateur est créé par défaut par le script database.sql.
 
-Email : admin@example.com
-Mot de passe : admin123
+* Email : admin@example.com
+* Mot de passe : admin123
 
 ## Auteurs
 Ce projet a été réalisé par :
